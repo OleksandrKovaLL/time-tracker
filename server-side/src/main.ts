@@ -7,20 +7,21 @@ async function bootstrap() {
 
   // Увімкни CORS для frontend (буде на http://localhost:3000)
   app.enableCors({
-    origin: 'http://localhost:3000',
+    origin: ['http://localhost:3000', 'http://localhost:5173'],
     credentials: true,
   });
 
   // Глобальна валідація
   app.useGlobalPipes(
-      new ValidationPipe({
-        whitelist: true,           // Видаляє зайві поля
-        forbidNonWhitelisted: true, // Кидає помилку якщо є зайві поля
-        transform: true,            // Трансформує типи (string → number)
-      }),
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+    }),
   );
 
-  await app.listen(3001); // 👈 Backend на порті 3001
-  console.log('🚀 Backend running on http://localhost:3001');
+  const port = process.env.PORT || 3001;
+  await app.listen(port);
+  console.log(`🚀 Backend running on ${port}`);
 }
 bootstrap();
