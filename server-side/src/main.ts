@@ -7,7 +7,11 @@ async function bootstrap() {
 
   // Увімкни CORS для frontend (буде на http://localhost:3000)
   app.enableCors({
-    origin: ['http://localhost:3000', 'http://localhost:5173'],
+    origin: [
+      'http://localhost:3000',
+      'http://localhost:5173',
+      'time-tracker-c7s43vq5r-oleksandrkovalls-projects.vercel.app',
+    ],
     credentials: true,
   });
 
