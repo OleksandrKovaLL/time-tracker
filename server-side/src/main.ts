@@ -10,7 +10,7 @@ async function bootstrap() {
     origin: [
       'http://localhost:3000',
       'http://localhost:5173',
-      'time-tracker-c7s43vq5r-oleksandrkovalls-projects.vercel.app',
+      'https://time-tracker-eosin-nine.vercel.app',
     ],
     credentials: true,
   });
